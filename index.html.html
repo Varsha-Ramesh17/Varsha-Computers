@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varsha Computers</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #e0ecff, #ffe0f0);
+    scroll-behavior: smooth;
+}
+
+header {
+    background: linear-gradient(90deg, #4facfe, #ff6ec4);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+nav {
+    background: #1a1a2e;
+    padding: 12px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    margin: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6ec4;
+}
+
+section {
+    padding: 20px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.04);
+    background: #fdf0ff;
+}
+
+h2 {
+    color: #ff6ec4;
+}
+
+button {
+    background: #4facfe;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.service-btn {
+    margin-top: 10px;
+    background: #ff6ec4;
+}
+
+footer {
+    background: linear-gradient(90deg, #4facfe, #ff6ec4);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.popup button {
+    background: red;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Varsha Computers</h1>
+    <p>All Type of DTP & Printing Works</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <div class="box">
+        <h2>Welcome</h2>
+        <p>Fast & Quality DTP Services Available in Vandavasi!</p>
+        <button onclick="showPopup()">Special Offer 🎉</button>
+    </div>
+</section>
+
+<section id="services">
+    <div class="box">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Designing</li>
+            <li>Tamil & English Typing</li>
+            <li>Invitation Printing</li>
+            <li>Visiting Cards</li>
+            <li>Bill Books</li>
+            <li>Notice Printing</li>
+            <li>Book Works</li>
+            <li>Banners</li>
+            <li>Project Works</li>
+            <li>Online Application Filling</li>
+            <li>Rubber Stamp</li>
+            <li>Screen Printing</li>
+            <li>Letter Pad</li>
+        </ul>
+        <button class="service-btn" onclick="alert('Call us for best price! 📞')">Get Price</button>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="box">
+        <h2>Contact Us</h2>
+        <p>📞 6369198218</p>
+        <p>📍 Rattaivaadai Chetty Street, Vandavasi</p>
+        <p>📧 ramesh.vsi1976@gmail.com</p>
+        <p>🕒 9:00 AM to 10:00 PM</p>
+        <button onclick="whatsapp()">Chat on WhatsApp</button>
+    </div>
+</section>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <h3>🎉 Special Offer!</h3>
+    <p>Student Discount Available!</p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<footer>
+    <p>© 2026 Varsha Computers</p>
+</footer>
+
+<script>
+function whatsapp() {
+    window.open("https://wa.me/916369198218", "_blank");
+}
+
+function showPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
