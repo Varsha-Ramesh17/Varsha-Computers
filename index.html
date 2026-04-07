@@ -4,22 +4,21 @@
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>Varsha Computers</title>  
-  
+
 <style>  
 body {  
     margin: 0;  
     font-family: Arial;  
     background: linear-gradient(to right, #e0ecff, #ffe0f0);  
-    scroll-behavior: smooth;  
 }  
-  
+
 header {  
     background: linear-gradient(90deg, #4facfe, #ff6ec4);  
     color: white;  
     text-align: center;  
     padding: 30px;  
 }  
-  
+
 nav {  
     background: #1a1a2e;  
     padding: 12px;  
@@ -27,22 +26,28 @@ nav {
     position: sticky;  
     top: 0;  
 }  
-  
+
 nav a {  
     color: white;  
     margin: 15px;  
     text-decoration: none;  
     font-weight: bold;  
+    cursor: pointer;
 }  
-  
+
 nav a:hover {  
     color: #ff6ec4;  
 }  
-  
+
 section {  
     padding: 20px;  
 }  
-  
+
+/* Hide all pages */
+.page {  
+    display: none;  
+}  
+
 .box {  
     background: white;  
     padding: 20px;  
@@ -51,16 +56,16 @@ section {
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);  
     transition: transform 0.3s, background 0.3s;  
 }  
-  
+
 .box:hover {  
     transform: scale(1.04);  
     background: #fdf0ff;  
 }  
-  
+
 h2 {  
     color: #ff6ec4;  
 }  
-  
+
 button {  
     background: #4facfe;  
     color: white;  
@@ -70,19 +75,19 @@ button {
     font-size: 16px;  
     cursor: pointer;  
 }  
-  
+
 .service-btn {  
     margin-top: 10px;  
     background: #ff6ec4;  
 }  
-  
+
 footer {  
     background: linear-gradient(90deg, #4facfe, #ff6ec4);  
     color: white;  
     text-align: center;  
     padding: 10px;  
 }  
-  
+
 /* Popup */  
 .popup {  
     display: none;  
@@ -96,36 +101,38 @@ footer {
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);  
     text-align: center;  
 }  
-  
+
 .popup button {  
     background: red;  
     margin-top: 10px;  
 }  
 </style>  
 </head>  
-  
+
 <body>  
-  
+
 <header>  
     <h1>Varsha Computers</h1>  
     <p>All Type of DTP & Printing Works</p>  
 </header>  
-  
+
 <nav>  
-    <a href="#home">Home</a>  
-    <a href="#services">Services</a>  
-    <a href="#contact">Contact</a>  
+    <a onclick="showPage('home')">Home</a>  
+    <a onclick="showPage('services')">Services</a>  
+    <a onclick="showPage('contact')">Contact</a>  
 </nav>  
-  
-<section id="home">  
+
+<!-- HOME -->
+<section id="home" class="page">  
     <div class="box">  
         <h2>Welcome</h2>  
         <p>Fast & Quality DTP Services Available in Vandavasi!</p>  
         <button onclick="showPopup()">Special Offer 🎉</button>  
     </div>  
 </section>  
-  
-<section id="services">  
+
+<!-- SERVICES -->
+<section id="services" class="page">  
     <div class="box">  
         <h2>Our Services</h2>  
         <ul>  
@@ -143,12 +150,12 @@ footer {
             <li>Screen Printing</li>  
             <li>Letter Pad</li>  
         </ul>  
-        <!-- Updated Button Text -->  
         <button class="service-btn" onclick="showSizes()">Show Size</button>  
     </div>  
 </section>  
-  
-<section id="contact">  
+
+<!-- CONTACT -->
+<section id="contact" class="page">  
     <div class="box">  
         <h2>Contact Us</h2>  
         <p>📞 9486414854</p>  
@@ -159,58 +166,62 @@ footer {
         <button onclick="whatsapp()">Chat on WhatsApp</button>  
     </div>  
 </section>  
-  
+
 <!-- Popup -->  
 <div class="popup" id="popup">  
     <h3>🎉 Special Offer!</h3>  
     <p>Student Discount Available!</p>  
     <button onclick="closePopup()">Close</button>  
 </div>  
-  
+
 <footer>  
     <p>© 2026 Varsha Computers</p>  
 </footer>  
-  
+
 <script>  
+
+// Page switch function
+function showPage(pageId) {  
+    let pages = document.querySelectorAll(".page");  
+
+    pages.forEach(function(page) {  
+        page.style.display = "none";  
+    });  
+
+    document.getElementById(pageId).style.display = "block";  
+}  
+
+// Default Home open
+window.onload = function() {  
+    showPage('home');  
+};  
+
 function whatsapp() {  
+    window.open("https://wa.me/916369198218", "_blank");  
     window.open("https://wa.me/919486414854", "_blank");  
 }  
-  
+
 function showPopup() {  
     document.getElementById("popup").style.display = "block";  
 }  
-  
+
 function closePopup() {  
     document.getElementById("popup").style.display = "none";  
 }  
 
-// Function to show Invitation & Card Sizes
-function showSizes() {
+function showSizes() {  
     alert(
 `Call us for best price! 📞
 
-📄 Invitation Sizes inches (in inches):
-A4
-Legal
-8x8
-9x6
-10x8
-12x8
-A3
+📄 Invitation Sizes:
+A4, Legal, 8x8, 9x6, 10x8, 12x8, A3
 
-💳 Card Sizes (in inches):
-6x4
-7x5
-8x5
-9x5
-9x6
-A4
-Legal
-A3
-DLB`
-    );
-}
+💳 Card Sizes:
+6x4, 7x5, 8x5, 9x5, 9x6, A4, Legal, A3, DLB`
+    );  
+}  
+
 </script>  
-  
+
 </body>  
 </html>
